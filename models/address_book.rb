@@ -17,4 +17,7 @@ require_relative "entry.rb"
      end
      @entries.insert(index, Entry.new(name, phone, email))
    end
- end
+
+   def remove_entry(entry)
+   end
+end
