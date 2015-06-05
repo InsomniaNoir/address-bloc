@@ -1,4 +1,5 @@
  require_relative "../models/address_book"
+ require_relative "../models/entry"
  
  class MenuController
    attr_accessor :address_book
@@ -73,7 +74,8 @@
   	  phone = gets.chomp
   	  print "Email: "
   	  email = gets.chomp
-  	  entry_number = @address_book.entries.count + 1
+  	  n = 0
+  	  entry_number = n += 1
 
   	  @address_book.add_entry(name, phone, email)
 
@@ -112,7 +114,7 @@
   	  print "Entry #: "
   	  entry = gets.chomp
   	  entry.each do |num|
-  	  	if num === entry_number
+  	  	if num === n
   	  		system "clear"
   	  		entry_submenu(entry)
   	  	else
