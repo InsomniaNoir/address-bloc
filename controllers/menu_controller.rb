@@ -73,7 +73,7 @@
   	  phone = gets.chomp
   	  print "Email: "
   	  email = gets.chomp
-  	  entry_number = gets.chomp
+  	  entry_number = @address_book.entries.count + 1
 
   	  @address_book.add_entry(name, phone, email)
 
@@ -106,11 +106,20 @@
   	  end
   	end
 
-  	def entry_number(entry_num)
+  	def entry_number(entry)
   	  system "clear"
   	  puts "Select an Entry Number"
   	  print "Entry #: "
-  	  entry_num = gets.chomp
-  	  puts "#{entry_num}"
+  	  entry = gets.chomp
+  	  entry.each do |num|
+  	  	if num === entry_number
+  	  		system "clear"
+  	  		entry_submenu(entry)
+  	  	else
+  	  	  system "clear"
+  	  	  puts "#{entry} is not a valid input!"
+  	  	  entries_submenu(entry)
+  	  	end
+  	  end
   	end
   end
