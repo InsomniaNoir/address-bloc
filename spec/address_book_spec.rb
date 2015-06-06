@@ -23,8 +23,7 @@ RSpec.describe AddressBook do
 		it "should initialize entries as empty" do
 			expect(book.entries.size).eql? 0
 	    end
-    end
-	
+	  end
 
 	context ".add_entry" do
      it "adds only one entry to the address book" do          
@@ -41,18 +40,17 @@ RSpec.describe AddressBook do
 	       expect(new_entry.phone_number).eql? '010.012.1815'
 	       expect(new_entry.email).eql? 'augusta.king@lovelace.com'
      	end
-     end
+     
 
  	
  		it "should confirm a single entry was removed from the address book" do 			
 
  			expect(book.entries.size).eql? 0 
  		end
- 
- 	  
-
- 	context ".import_from_csv"
- 		it "imports the correct number of entires" do
+ 	end
+ 	
+	 context ".import_from_csv"
+ 		it "imports the correct number of entries" do
 
  			book.import_from_csv("entries.csv")
  			book_size = book.entries.size
@@ -88,7 +86,7 @@ RSpec.describe AddressBook do
 
 	       check_entry(entry_four, "Sally","555-555-5555","sally@blocmail.com")	       
 	     end
-	 
+
 	     it "checks the details of the fifth entry" do
 	       book.import_from_csv("entries.csv")	       
 	       entry_five = book.entries[4]
@@ -96,3 +94,33 @@ RSpec.describe AddressBook do
 	       check_entry(entry_five, "Sussie","555-555-5555","sussie@blocmail.com")	       
 		end
 	end
+
+	  context "imports from entries_2" do
+		it "imports the correct number of entries" do
+
+			book.import_from_csv("entries_2.csv")
+			book_size = book.entries.size
+			expect(book_size).to eql 3
+		end
+	
+		it "checks the details of the sixth entry" do
+			book.import_from_csv("entries_2.csv")
+			entry_six = book.entries[5]
+
+			check_entry(entry_six,"Davey","666-666-6666","davey@afireinside.net")
+		end
+
+		it "checks the details of the seventh entry" do
+			book.import_from_csv("entries_2.csv")
+			entry_seven = book.entries[6]
+
+			check_entry(entry_six,"Chuck","333-333-3333","chuck@hotwatermusic.com")
+		end
+
+		it "checks the details of the eighth entry" do
+			book.import_from_csv("entries_2.csv")
+			entry_eight = book.entries[7]
+
+			book.import_from_csv("Andy","777-777-7777","andy@astronautalis.com")
+		end
+	  end
