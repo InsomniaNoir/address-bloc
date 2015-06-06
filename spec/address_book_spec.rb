@@ -93,6 +93,7 @@ RSpec.describe AddressBook do
 
 	       check_entry(entry_five, "Sussie","555-555-5555","sussie@blocmail.com")	       
 		end
+	end
 
 	  context "imports from entries_2" do
 		it "imports the correct number of entries" do
@@ -104,24 +105,23 @@ RSpec.describe AddressBook do
 	
 		it "checks the details of the sixth entry" do
 			book.import_from_csv("entries_2.csv")
-			entry_six = book.entries[5]
+			entry_six = book.entries[2]
 
 			check_entry(entry_six,"Davey","666-666-6666","davey@afireinside.net")
 		end
 
 		it "checks the details of the seventh entry" do
 			book.import_from_csv("entries_2.csv")
-			entry_seven = book.entries[6]
+			entry_seven = book.entries[1]
 
-			check_entry(entry_six,"Chuck","333-333-3333","chuck@hotwatermusic.com")
+			check_entry(entry_seven, "Chuck","333-333-3333","chuck@hotwatermusic.com")
 		end
 
 		it "checks the details of the eighth entry" do
 			book.import_from_csv("entries_2.csv")
-			entry_eight = book.entries[7]
+			entry_eight = book.entries[0]
 
-			book.import_from_csv("Andy","777-777-7777","andy@astronautalis.com")
-		end
+			check_entry(entry_eight, "Andy","777-777-7777","andy@astronautalis.com")
 	  end
 	end
-  end
+end
