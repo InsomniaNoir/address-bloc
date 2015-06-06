@@ -49,7 +49,7 @@ RSpec.describe AddressBook do
  		end
  	end
  	
-	 context ".import_from_csv"
+	 context ".import_from_csv" do
  		it "imports the correct number of entries" do
 
  			book.import_from_csv("entries.csv")
@@ -93,7 +93,6 @@ RSpec.describe AddressBook do
 
 	       check_entry(entry_five, "Sussie","555-555-5555","sussie@blocmail.com")	       
 		end
-	end
 
 	  context "imports from entries_2" do
 		it "imports the correct number of entries" do
@@ -124,3 +123,5 @@ RSpec.describe AddressBook do
 			book.import_from_csv("Andy","777-777-7777","andy@astronautalis.com")
 		end
 	  end
+	end
+  end
