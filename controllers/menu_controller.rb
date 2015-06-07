@@ -16,6 +16,7 @@
      puts "4 - Import entries from a CSV"
      puts "5 - View Entry Number n"
      puts "6 - Exit"
+     puts "12345 - Nuke from Orbit [DANGER]"
      print "Enter your selection: "
 
      selection = gets.to_i
@@ -23,9 +24,9 @@
 
     case selection
       when 1
-     	system "clear"
-     	view_all_entries
-     	main_menu
+       	system "clear"
+       	view_all_entries
+       	main_menu
       when 2
       	system "clear"
       	create_entry
@@ -46,6 +47,11 @@
   	  	puts "Goodbye!"
 
   	  	exit(0)
+      when 12345
+        puts "It's the only way to be sure..."
+        nuke_from_orbit
+        main_menu
+      end
 
   	  else
   	  	system "clear"
@@ -228,5 +234,9 @@
       system "clear"
       puts "Updated entry!"
       puts entry
+    end
+
+    def nuke_from_orbit
+      @address_book.entries.delete
     end
   end
