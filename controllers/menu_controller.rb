@@ -142,4 +142,9 @@
   	  	end
   	  end
   	end
+
+    def delete_entry(entry)
+      @address_book.entries.delete(entry)
+      puts "#{entry_name} has been deleted"
+    end    
   end
