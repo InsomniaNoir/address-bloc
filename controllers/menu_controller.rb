@@ -122,6 +122,31 @@
       end
     end
 
+    def search_submenu(entry)
+      puts "\nd - Delete this Entry"
+      puts "e - Edit this Entry"
+      puts "m - Return to Main Menu"
+
+      selection = gets.chomp
+
+      case selection
+      when "d"
+        system "clear"
+        delete_entry(entry)
+        main_menu
+      when "e"
+        edit_entry(entry)
+        system "clear"
+        main_menu
+      when "m"
+        system "clear"
+        main_menu
+      else
+        system "clear"
+        puts "#{selection} is not a valid input."
+        puts entry.to_s
+        search_submenu(entry)
+      end
     end
 
   	def read_csv
