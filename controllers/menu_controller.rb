@@ -54,6 +54,31 @@
   	  end
   	end
 
+    def entry_submenu(entry)
+      puts "\nn - Next Entry"
+      puts "d - Delete Entry"
+      puts "e - Edit this Entry"
+      puts "m - Return to Main Menu"
+
+      selection = $stdin.gets.chomp
+
+      case selection
+        when "n"
+        when "d"
+          delete_entry
+        when "e"
+          edit_entry(entry)
+          entry_submenu(entry)
+        when "m"
+          system "clear"
+          main_menu
+        else
+          system "clear"
+          puts "#{selection} is not a valid input"
+          entry_submenu(entry)
+      end
+    end
+
   	def view_all_entries
   	  @address_book.entries.each do
   	  system "clear"
@@ -146,5 +171,21 @@
     def delete_entry(entry)
       @address_book.entries.delete(entry)
       puts "#{entry_name} has been deleted"
-    end    
+    end
+
+    def edit(entry)
+      print "Updated name: "
+      name = gets.chomp
+      print "Updated phone number: "
+      phone_number = gets.chomp
+      print "Updated Email: "
+      email = gets.chomp
+
+      entry.name = name if !name.empty?
+      entry.phone_number = phone_number if !phone_number.empty?
+      entry.email = email if !email.empty?
+      system "clear"
+      puts "Updated entry!"
+      puts entry
+    end
   end
